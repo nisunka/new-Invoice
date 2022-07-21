@@ -1,0 +1,28 @@
+.container {
+    max-width: var(--container-max);
+    padding-top: 60px;
+    padding-bottom: 60px;
+    padding-left: var(--container-form-padding);
+    padding-right: var(--container-form-padding);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.formItem {
+    margin-bottom: 60px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}
+
+@media (max-width: 599px) {
+    .formItem {
+        margin-bottom: 15px;
+    }
+}

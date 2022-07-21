@@ -1,0 +1,15 @@
+.count,
+.countError {
+    font-family: 'TT Norms';
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+.count {
+    color: var(--grey);
+}
+
+.countError {
+    color: var(--red);
+}

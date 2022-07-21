@@ -1,0 +1,83 @@
+@font-face {
+  font-family: "TT Norms";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("./assets/fonts/TTNorms-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "TT Norms";
+  font-style: normal;
+  font-weight: 500;
+  src: local(""), url("./assets/fonts/TTNorms-Medium.woff2") format("woff2");
+}
+
+body {
+  margin: 0;
+  font-family: "TT Norms", sans-serif;
+  font-weight: 500;
+  letter-spacing: .01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  /* sizes */
+  --container-max: 870px;
+  --container-form-padding: 40px;
+
+  /* box-shadow */
+  --box-shadow-basic: var(--purple) 0 0 0 1px inset;
+
+  /* colors */
+  --white: #fff;
+  --ultra-grey: #E1E1E1;
+  --medium-grey: #747474;
+  --grey: #B2B2B2;
+  --dark: #333;
+  --red: #D74B4B;
+  --purple: #7658E0;
+  --purple-transparent-05: rgba(118, 88, 224, .5);
+  --purple-transparent-01: rgba(118, 88, 224, .1);
+  --grey-transparent-01: rgba(0, 0, 0, .1);
+
+}
+
+
+html {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+}
+
+input, textarea {
+  resize: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  font-family: 'TT Norms', sans-serif;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

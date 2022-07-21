@@ -1,0 +1,58 @@
+.wrapper {
+    width: calc(175/870 * 100%);
+    border: 1px solid var(--ultra-grey);
+    margin-top: -1px;
+    border-bottom-left-radius: 6px;
+}
+
+.item {
+    position: relative;
+}
+
+.itemHeader {
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--ultra-grey);
+}
+
+.itemName {
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: .01em;
+    color: var(--dark);
+}
+
+.itemName,
+.itemValue {
+    transition: box-shadow .3s ease-in-out;
+}
+
+.itemValue {
+    padding: 18px 20px;
+    margin-top: -1px;
+    position: relative;
+}
+
+.input {
+    width: 100%;
+    font-family: 'TT Norms';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: .01em;
+    color: var(--dark);
+}
+
+.header:focus-within {
+    transition: box-shadow .3s ease;
+}
+
+.item:focus-within .itemName {
+    color: var(--purple);
+}
+
+.item:focus-within .itemValue,
+.header:focus-within {
+    box-shadow: var(--box-shadow-basic);
+}

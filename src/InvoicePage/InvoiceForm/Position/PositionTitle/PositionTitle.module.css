@@ -1,0 +1,36 @@
+.header {
+    padding: 17px 20px 27px 20px;
+    border: 1px solid var(--ultra-grey);
+    border-radius: 6px 6px 0px 0px;
+    position: relative;
+    transition: border-color .3s ease-in-out;
+}
+
+.counter {
+    position: absolute;
+    top: 65%;
+    right: 2%;
+}
+
+.textarea {
+    width: calc(780/870 * 100%);
+    font-family: 'TT Norms', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: var(--dark);
+    overflow: hidden;
+    min-height: 40px;
+}
+
+::placeholder {
+    font-weight: 400;
+}
+
+.header:focus-within {
+    transition: box-shadow .3s ease;
+}
+
+.header:focus-within {
+    box-shadow: var(--box-shadow-basic);
+}

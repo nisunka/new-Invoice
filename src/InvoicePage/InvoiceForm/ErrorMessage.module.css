@@ -1,0 +1,10 @@
+.message {
+    display: inline-block;
+    margin-top: 26px;
+    font-family: 'TT Norms', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1;
+    color: var(--red);
+}
