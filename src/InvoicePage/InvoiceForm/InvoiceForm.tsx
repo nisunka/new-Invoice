@@ -1,29 +1,20 @@
 import React from "react";
-import { Field, Form, useField } from "react-final-form";
+import { Field, Form } from "react-final-form";
+import { IInvoiceForm } from "./InvoiceForm.interface";
 import { initialInvoiceValues } from "../constants";
 import ChoiceAccount from "./ChoiceAccount/ChoiceAccount";
 import { groupedAccounts } from "./ChoiceAccount/choiceAccountOptions";
 import TitleForm from "./TitleForm/TitleForm";
-
-import style from "./InvoiceForm.module.css";
 import PartnerName from "./PartnerName/PartnerName";
-import arrayMutators, { insert } from "final-form-arrays";
+import arrayMutators from "final-form-arrays";
 import Position from "./Position/Position";
 import OptionalItems from "./OptionalItems/OptionalItems";
 import AddSign from "./Position/AddSign/AddSign";
 import SubmitBtn from "./SubmitBtn/SubmitBtn";
-
-interface IValues {
-  withApproved: any;
-  additional: any;
-  choiceAccount: string;
-  partnerName: string;
-  positions: any;
-  photo: any;
-}
+import style from "./InvoiceForm.module.css";
 
 const InvoiceForm = () => {
-  const onSubmit = async (values: IValues) => {
+  const onSubmit = async (values: IInvoiceForm) => {
     console.log(JSON.stringify(values, undefined, 2));
   };
 
@@ -40,18 +31,16 @@ const InvoiceForm = () => {
           form: {
             mutators: { push, remove, insert },
           },
-          submitting,
-          pristine,
           values,
         }) => (
           <form onSubmit={handleSubmit}>
-            <div className={style.formContainer}>
+            <div>
               {/* ВЫБРАТЬ СЧЕТ */}
               <div className={style.formItem}>
-                <div className={style.formTitle}>
+                <div>
                   <TitleForm title="Счёт" />
                 </div>
-                <div className={style.formBody}>
+                <div>
                   <Field
                     name="choiceAccount"
                     component={ChoiceAccount}
@@ -61,10 +50,10 @@ const InvoiceForm = () => {
               </div>
               {/* КОНТРАГЕНТ */}
               <div className={style.formItem}>
-                <div className={style.formTitle}>
+                <div>
                   <TitleForm title="Контрагент" />
                 </div>
-                <div className={style.formBody}>
+                <div>
                   <Field
                     name="partnerName"
                     component={PartnerName}
@@ -74,10 +63,10 @@ const InvoiceForm = () => {
               </div>
               {/* ПОЗИЦИИ */}
               <div className={style.formItem}>
-                <div className={style.formTitle}>
+                <div>
                   <TitleForm title="Позиции" />
                 </div>
-                <div className={style.formBody}>
+                <div>
                   <Position
                     initialValue={values.positions}
                     values={values}
@@ -100,27 +89,24 @@ const InvoiceForm = () => {
                   />
                 </div>
               </div>
-
               {/* ДОПОЛНИТЕЛЬНО */}
               <div className={style.formItem}>
-                <div className={style.formTitle}>
+                <div>
                   <TitleForm title="Дополнительно" />
                 </div>
-                <div className={style.formBody}>
+                <div>
                   <OptionalItems
                     initialValue={values.additional}
                     values={values.additional}
                   />
                 </div>
               </div>
-
               {/* ДОБАВИТЬ ПОДПИСЬ/ПЕЧАТЬ */}
               <div className={style.formItem}>
-                <div className={style.formBody}>
+                <div>
                   <AddSign name="withApproved" value={values.withApproved} />
                 </div>
               </div>
-
               {/* КНОПКА ОТПРАВИТЬ */}
               <SubmitBtn />
             </div>

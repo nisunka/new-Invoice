@@ -2,27 +2,11 @@ import React from "react";
 import { FieldRenderProps } from "react-final-form";
 import TooltipBase from "../../Tooltip/TooltipBase/TooltipBase";
 import { baseTooltipMessage } from "../../Tooltip/tooltipMessage";
+import { CounterSymbols } from "../../CounterSymbols/CounterSymbols";
 import errorStyle from "../../ErrorMessage.module.css";
-import countSymbols from "../../CountSymbols.module.css";
 import style from "./OptionalBase.module.css";
 
 type Props = FieldRenderProps<string, any>;
-
-const counterSymbols = (valueLength: string, maxSymbols: number) => {
-  if (Number(valueLength) > maxSymbols) {
-    return (
-      <span className={countSymbols.countError}>
-        {valueLength} / {maxSymbols}
-      </span>
-    );
-  } else {
-    return (
-      <span className={countSymbols.count}>
-        {valueLength} / {maxSymbols}
-      </span>
-    );
-  }
-};
 
 const OptionalBase: React.FC<Props> = ({
   valueLength,
@@ -44,11 +28,15 @@ const OptionalBase: React.FC<Props> = ({
       <div className={style.rightSide}>
         <input className={style.input} type="text" {...input} {...rest} />
         <span className={style.counter}>
-          {counterSymbols(valueLength, maxSymbols)}
+          {CounterSymbols(valueLength, maxSymbols)}
         </span>
 
         {meta.error && meta.touched && (
-          <span className={errorStyle.message}>{meta.error}</span>
+          <span
+            className={`${errorStyle.messageOptionalBlock} ${errorStyle.optionalBase}`}
+          >
+            {meta.error}
+          </span>
         )}
       </div>
     </div>

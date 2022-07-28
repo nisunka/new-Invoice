@@ -6,15 +6,19 @@ import { ReactComponent as BackIconMobile } from "../../assets/img/icon/backIcon
 import { ReactComponent as CloseIconMobile } from "../../assets/img/icon/closeIconMobile.svg";
 import style from "./HeaderNavigation.module.css";
 
-const HeaderNavigation = () => {
-  const title = <h2 className={style.title}>Выставление счёта</h2>;
+interface IHeaderNavigation {
+  title: string;
+}
+
+const HeaderNavigation = ({ title }: IHeaderNavigation) => {
+  const titleNav = <h2 className={style.title}>{title}</h2>;
 
   const desktopContent = (
     <div className={style.container}>
       <button>
         <BackIcon className={style.iconBtn} />
       </button>
-      {title}
+      {titleNav}
       <button>
         <CloseIcon className={style.iconBtn} />
       </button>
@@ -26,7 +30,7 @@ const HeaderNavigation = () => {
       <button>
         <BackIconMobile className={style.iconBtn} />
       </button>
-      {title}
+      {titleNav}
       <button>
         <CloseIconMobile className={style.iconBtn} />
       </button>

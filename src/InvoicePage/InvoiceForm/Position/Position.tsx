@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import { Field } from "react-final-form";
 import { FieldArray } from "react-final-form-arrays";
 import { MatchMediaWrapper } from "../../MatchMedia/MatchMediaWrapper";
@@ -7,14 +7,11 @@ import PositionCount from "./PositionCount/PositionCount";
 import PositionNds from "./PositionNds/PositionNds";
 import { positionsWhat, positionsNds } from "./positionOptions";
 import PositionPrice from "./PositionPrice/PositionPrice";
-import PositionTitle from "./PositionTitle/PositionTitle";
 import PositionTotal from "./PositionTotal/PositionTotal";
 import PositionWhat from "./PositionWhat/PositionWhat";
-import { ReactComponent as DeleteIcon } from "../../../assets/img/icon/deleteIcon.svg";
-import { ReactComponent as DuplicateIcon } from "../../../assets/img/icon/duplicateIcon.svg";
 import AddPositionDesktop from "./AddPositionDesktop/AddPositionDesktop";
-import useOnClickOutside from "../useOnClickOutside";
 import AddPositionMobile from "./AddPositionMobile/AddPositionMobile";
+import PositionHeader from "./PositionHeader/PositionHeader";
 
 interface IPosition {
   initialValue: any;
@@ -37,10 +34,6 @@ const Position = ({
   deletePosition,
   duplicatePosition,
 }: IPosition) => {
-  const [openMenu, setOpenMenu] = useState(false);
-  const refOpenMenu = useRef(null);
-  useOnClickOutside(refOpenMenu, () => setOpenMenu(false));
-
   const desktopContent = (
     <div>
       <FieldArray name="positions" initialValue={initialValue}>
@@ -48,74 +41,48 @@ const Position = ({
           values.positions.map((name: string, index: number) => (
             <div key={index}>
               <div className={style.container}>
-                <div className={style.header}>
-                  <Field<string>
-                    name={`positions.${index}.title`}
-                    component={PositionTitle}
-                    placeholder="Название товара или услуги"
-                    valueLength={values.positions[index].title.length}
-                    maxSymbols={500}
-                  />
-                  <div ref={refOpenMenu}>
-                    <button
-                      type="button"
-                      className={style.positionBtn}
-                      onClick={() => setOpenMenu((prev: boolean) => !prev)}
-                    />
-                    {openMenu && (
-                      <div className={style.menu}>
-                        <div className={style.menuWrapper}>
-                          <ul className={style.menuList}>
-                            <li className={style.menuItem}>
-                              <span
-                                onClick={() => duplicatePosition(index)}
-                                className={style.menuBtn}
-                              >
-                                Дублировать
-                                <DuplicateIcon />
-                              </span>
-                            </li>
-                            <li className={`${style.menuItem}`}>
-                              <span
-                                onClick={() => deletePosition(index)}
-                                className={`${style.menuBtn} ${style.menuBtnRed}`}
-                              >
-                                Удалить
-                                <DeleteIcon />
-                              </span>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
+                <PositionHeader
+                  name={`positions.${index}.title`}
+                  valueLength={values.positions[index].title.length}
+                  deletePosition={() => deletePosition(index)}
+                  duplicatePosition={() => duplicatePosition(index)}
+                />
                 <div className={style.body}>
-                  <Field<number>
-                    name={`positions.${index}.count`}
-                    component={PositionCount}
-                    validate={maxCount(99999)}
-                  />
-                  <Field<string>
-                    name={`positions.${index}.what`}
-                    component={PositionWhat}
-                    options={positionsWhat}
-                  />
-                  <Field<string>
-                    name={`positions.${index}.price`}
-                    component={PositionPrice}
-                    placeholder="0 &#8381;"
-                    validate={maxPrice(99999999)}
-                  />
-                  <Field<string>
-                    name={`positions.${index}.nds`}
-                    component={PositionNds}
-                    options={positionsNds}
-                  />
-                  <Field<number>
-                    name={`positions.${index}.total`}
-                    component={PositionTotal}
-                  />
+                  <div className={style.bodyItem}>
+                    <Field<number>
+                      name={`positions.${index}.count`}
+                      component={PositionCount}
+                      validate={maxCount(99999)}
+                    />
+                  </div>
+                  <div className={style.bodyItem}>
+                    <Field<string>
+                      name={`positions.${index}.what`}
+                      component={PositionWhat}
+                      options={positionsWhat}
+                    />
+                  </div>
+                  <div className={style.bodyItem}>
+                    <Field<string>
+                      name={`positions.${index}.price`}
+                      component={PositionPrice}
+                      placeholder="0 &#8381;"
+                      validate={maxPrice(99999999)}
+                    />
+                  </div>
+                  <div className={style.bodyItem}>
+                    <Field<string>
+                      name={`positions.${index}.nds`}
+                      component={PositionNds}
+                      options={positionsNds}
+                    />
+                  </div>
+                  <div className={style.bodyItem}>
+                    <Field<number>
+                      name={`positions.${index}.total`}
+                      component={PositionTotal}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -127,7 +94,17 @@ const Position = ({
     </div>
   );
 
-  const mobileContent = <AddPositionMobile addPosition={addPosition} />;
+  const mobileContent = (
+    <div>
+      <AddPositionMobile
+        values={values}
+        initialValue={initialValue}
+        addPosition={addPosition}
+        deletePosition={deletePosition}
+        duplicatePosition={duplicatePosition}
+      />
+    </div>
+  );
 
   return (
     <MatchMediaWrapper

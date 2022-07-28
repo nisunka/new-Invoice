@@ -90,6 +90,10 @@
         transition: border-bottom .3s ease-in-out
     }
 
+    .input {
+        width: 85%;
+    }
+
     .container:focus .rightSide,
     .container:focus-within .rightSide {
         box-shadow: none
@@ -99,4 +103,5 @@
     .container:focus-within .rightSide {
         border-bottom: var(--purple) 1px solid;
     }
+
 }

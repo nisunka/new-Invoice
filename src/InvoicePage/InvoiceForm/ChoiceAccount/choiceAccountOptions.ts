@@ -1,6 +1,3 @@
-// import rus from "../../assets/img/rus.svg";
-// import otherBank from "../../assets/img/otherBank.svg";
-
 import rusAccount from "../../../assets/img/accountLogo/rusAccount.svg";
 import alfaAccount from "../../../assets/img/accountLogo/alfaAccount.svg";
 

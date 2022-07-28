@@ -43,7 +43,6 @@ body {
 
 }
 
-
 html {
   box-sizing: border-box;
 }
@@ -80,4 +79,13 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.fixed {
+  overflow: hidden;
+  position: fixed;
+}
+
+.see {
+  overflow-y: scroll !important;
 }

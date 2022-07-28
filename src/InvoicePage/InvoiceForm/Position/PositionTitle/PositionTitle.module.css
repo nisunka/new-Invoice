@@ -34,3 +34,44 @@
 .header:focus-within {
     box-shadow: var(--box-shadow-basic);
 }
+
+.itemHeader {
+    display: none;
+}
+
+@media (max-width: 599px) {
+    .header {
+        padding: 0;
+        border: none;
+        border-bottom: 1px solid var(--ultra-grey);
+        transition: border-color .3s ease;
+    }
+
+    .header:focus-within {
+        border-color: var(--purple);
+    }
+
+    .header:focus-within {
+        box-shadow: none;
+    }
+
+    .itemHeader {
+        display: block;
+    }
+
+    .itemName {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .textarea {
+        margin: 15px 0 5px 0;
+        width: 80%;
+    }
+
+    .counter {
+        right: 0%;
+        top: 75%;
+    }
+
+}

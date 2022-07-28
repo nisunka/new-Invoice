@@ -1,9 +1,10 @@
 import React from "react";
 import { FieldRenderProps } from "react-final-form";
+import { validate } from "../../validation/validateInputNumber";
 import errorStyle from "../../ErrorMessage.module.css";
 import style from "./OptionalPriceNumber.module.css";
 
-type Props = FieldRenderProps<number, any>;
+type Props = FieldRenderProps<string, any>;
 
 const OptionalPriceNumber: React.FC<Props> = ({
   valueLength,
@@ -20,9 +21,19 @@ const OptionalPriceNumber: React.FC<Props> = ({
         </div>
       </div>
       <div className={style.rightSide}>
-        <input className={style.input} type="number" {...input} {...rest} />
+        <input
+          className={style.input}
+          type="text"
+          {...input}
+          {...rest}
+          onKeyPress={validate}
+        />
         {meta.error && meta.touched && (
-          <span className={errorStyle.message}>{meta.error}</span>
+          <span
+            className={`${errorStyle.messageOptionalBlock} ${errorStyle.optionalPNumber}`}
+          >
+            {meta.error}
+          </span>
         )}
       </div>
     </div>
