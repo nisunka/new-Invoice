@@ -8,7 +8,7 @@ const PartnerName: React.FC<Props> = ({ input, meta, ...rest }: Props) => {
   return (
     <div className={style.container} tabIndex={0}>
       <div className={style.leftSide}>
-        <div className={style.leftWrapper}>
+        <div>
           <span className={style.namePosition}>Данные контрагента</span>
         </div>
       </div>

@@ -6,7 +6,7 @@ import style from "./InvoicePage.module.css";
 const InvoicePage = () => {
   return (
     <div className={style.container}>
-      <HeaderNavigation />
+      <HeaderNavigation title="Выставление счёта" />
       <InvoiceForm />
     </div>
   );

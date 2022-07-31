@@ -1,15 +1,11 @@
-import React, { RefObject, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { TooltipBaseType } from "../Tooltip.type";
 import { ReactComponent as TooltipIcon } from "../../../../assets/img/icon/tooltipIcon.svg";
 import style from "./TooltipPrice.module.css";
 
-type Props = {
-  children: any;
-};
-
-const Tooltip: React.FC<Props> = ({ children }: Props) => {
+const Tooltip: React.FC<TooltipBaseType> = ({ children }: TooltipBaseType) => {
   const [openTooltip, setOpenTooltip] = useState(false);
-
   const offsetTop = -55;
   const offsetLeft = 40;
   const targetElementRef = useRef<HTMLDivElement>(null);
@@ -20,13 +16,6 @@ const Tooltip: React.FC<Props> = ({ children }: Props) => {
     top: Number(position?.y) + window.pageYOffset + offsetTop + "px",
     right: Number(position?.x) + window.pageXOffset + "px",
   };
-
-  const portalRef = useRef();
-  // if (!portalRef.current) {
-  // element = document.createElemet()...
-  // document.body.appendChild
-  // portalRef.current = element
-  // }
 
   return (
     <div>

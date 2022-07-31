@@ -1,5 +1,3 @@
-// Исходные значения
-
 export const initialInvoiceValues = {
   choiceAccount: "",
   partnerName: "",

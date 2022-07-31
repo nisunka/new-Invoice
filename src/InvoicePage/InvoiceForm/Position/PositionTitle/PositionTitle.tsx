@@ -1,25 +1,9 @@
 import React from "react";
 import { FieldRenderProps } from "react-final-form";
-import countSymbols from "../../CountSymbols.module.css";
+import { CounterSymbols } from "../../CounterSymbols/CounterSymbols";
 import style from "./PositionTitle.module.css";
 
 type Props = FieldRenderProps<string, any>;
-
-const counterSymbols = (valueLength: string, maxSymbols: number) => {
-  if (Number(valueLength) > maxSymbols) {
-    return (
-      <span className={countSymbols.countError}>
-        {valueLength} / {maxSymbols}
-      </span>
-    );
-  } else {
-    return (
-      <span className={countSymbols.count}>
-        {valueLength} / {maxSymbols}
-      </span>
-    );
-  }
-};
 
 const PositionTitle: React.FC<Props> = ({
   valueLength,
@@ -31,6 +15,9 @@ const PositionTitle: React.FC<Props> = ({
   return (
     <div className={style.header} tabIndex={0}>
       <div className={style.headerWrapper}>
+        <div className={style.itemHeader}>
+          <span className={style.itemName}>Название</span>
+        </div>
         <textarea
           maxLength={510}
           className={style.textarea}
@@ -38,7 +25,7 @@ const PositionTitle: React.FC<Props> = ({
           {...rest}
         />
         <span className={style.counter}>
-          {counterSymbols(valueLength, maxSymbols)}
+          {CounterSymbols(valueLength, maxSymbols)}
         </span>
       </div>
     </div>

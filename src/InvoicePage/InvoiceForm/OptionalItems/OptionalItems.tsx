@@ -1,34 +1,28 @@
 import React from "react";
 import { Field } from "react-final-form";
+import { IOptionalItems } from "./OptionalItems.interface";
 import OptionalBase from "./OptionalBase/OptionalBase";
 import OptionalDataOfCreation from "./OptionalDataOfCreation/OptionalDataOfCreation";
 import OptionalDeadline from "./OptionalDeadLine/OptionalDeadline";
-import style from "./OptionalItems.module.css";
 import OptionalName from "./OptionalName/OptionalName";
 import OptionalPriceNumber from "./OptionalPriceNumber/OptionalPriceNumber";
-import dayjs from "dayjs";
+import formatString from "format-string-by-pattern";
+import "dayjs/plugin/isSameOrAfter";
+import {
+  maxValue,
+  validateDataOfCreation,
+  validateDeadLine,
+} from "../validation/validateOptionalItems";
+import { maskPriceNumber, maskDate } from "./optionalItemsMask";
 
-interface IOptionalItems {
-  initialValue: any;
-  values: any;
-}
-
-const maxValue = (max: number) => (value: string | number) => {
-  if (typeof value === "string") {
-    return value.length > max ? `Сократите до ${max} символов` : undefined;
-  } else {
-    return value > max ? `Сократите до ${max} символов` : undefined;
-  }
-};
-
-const OptionalItems = ({ initialValue, values }: IOptionalItems) => {
+const OptionalItems = ({ values }: IOptionalItems) => {
   return (
-    <div className={style.container}>
+    <div>
       <Field<string>
         name="additional.base"
         component={OptionalBase}
         placeholder="Необязательно"
-        validate={maxValue(210)}
+        validate={maxValue(210, 0)}
         valueLength={String(values.base.length)}
         maxSymbols={210}
       />
@@ -36,27 +30,31 @@ const OptionalItems = ({ initialValue, values }: IOptionalItems) => {
         name="additional.name"
         component={OptionalName}
         placeholder="Должность и ФИО заказчика"
-        validate={maxValue(120)}
+        validate={maxValue(120, 0)}
         valueLength={String(values.name.length)}
         maxSymbols={120}
       />
-      <Field<number>
+      <Field<string>
         name="additional.priceNumber"
         component={OptionalPriceNumber}
         placeholder="Укажите номер счёта"
-        validate={maxValue(20)}
-        valueLength={values.priceNumber.length}
-        maxSymbols={20}
+        validate={maxValue(24, 4)}
+        valueLength={Number(values.priceNumber.length)}
+        parse={formatString(maskPriceNumber.parse)}
       />
       <Field<string>
         name="additional.dataOfCreation"
         component={OptionalDataOfCreation}
         placeholder="дд.мм.ггг"
+        parse={formatString(maskDate.parse)}
+        validate={validateDataOfCreation(10)}
       />
       <Field<string>
         name="additional.deadLine"
         component={OptionalDeadline}
         placeholder="дд.мм.ггг"
+        parse={formatString(maskDate.parse)}
+        validate={validateDeadLine(10)}
       />
     </div>
   );

@@ -24,3 +24,16 @@
 .addBtn:hover {
     opacity: .7;
 }
+
+.Pattern {
+    margin-bottom: 100px;
+}
+
+.NewPos {
+    cursor: pointer;
+    display: block;
+}
+
+.NewPos:focus {
+    color: red;
+}

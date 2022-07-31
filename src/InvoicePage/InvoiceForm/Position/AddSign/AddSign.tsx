@@ -1,12 +1,7 @@
-import React from "react";
 import { Field } from "react-final-form";
+import { IAddSign } from "./AddSign.interface";
 import { ReactComponent as PlusIcon } from "../../../../assets/img/icon/plusIcon.svg";
 import style from "./AddSign.module.css";
-
-interface IAddSign {
-  name: string;
-  value: boolean;
-}
 
 const AddSign = ({ name, value }: IAddSign) => {
   return (
