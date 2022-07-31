@@ -22,7 +22,7 @@ const ChoiceAccount: React.FC<Props> = ({
   };
 
   return (
-    <div className={style.container} tabIndex={0}>
+    <div className={`${style.container} containerChoiceAccount`} tabIndex={0}>
       <div className={style.leftSide}>
         <div>
           <span className={style.namePosition}>Выберите счёт</span>
