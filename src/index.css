@@ -81,11 +81,11 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-.fixed {
+.fixedRoot {
   overflow: hidden;
   position: fixed;
 }
 
-.see {
+.onScrollPosition {
   overflow-y: scroll !important;
 }

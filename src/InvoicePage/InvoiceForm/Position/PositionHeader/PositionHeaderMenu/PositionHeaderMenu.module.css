@@ -1,0 +1,45 @@
+.menu {
+    z-index: 15;
+    position: absolute;
+    top: 20%;
+    right: 6%;
+    width: calc(255 / 870 * 100%);
+    display: inline-block;
+    background-color: var(--white);
+    box-shadow: 0px 20px 40px var(--grey-transparent-01);
+    border-radius: 10px;
+}
+
+.menuList {
+    display: flex;
+    flex-direction: column;
+}
+
+.menuItem {
+    padding: 15px;
+    cursor: pointer;
+    z-index: 12;
+    border-radius: 10px;
+    transition: background-color .3s ease;
+}
+
+.menuItem:hover {
+    background-color: var(--grey-transparent-01);
+}
+
+.menuBtn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'TT Norms';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: .01em;
+    color: var(--dark);
+}
+
+.menuBtnRed {
+    color: var(--red);
+}

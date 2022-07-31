@@ -1,51 +1,39 @@
-.containerPositionMobile {
-    padding: 0 20px;
+.btnWrapper {
+    position: relative;
+    border-radius: 6px;
+    padding: 27px 0;
+}
+
+.addBtn {
     position: absolute;
     left: 0;
     top: 0;
+    height: 100%;
     width: 100%;
-    background-color: white;
-}
-
-.container {
     display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.bodyItem {
-    margin-top: 15px;
-}
-
-.bodyItem:last-child {
-    margin-bottom: 30px;
-}
-
-.btnSavePosition {
-    width: 335px;
-    padding: 14px 50px;
-    font-family: 'TT Norms';
+    align-items: center;
+    gap: 15px;
+    font-family: 'TT Norms', sans-serif;
     font-weight: 500;
-    font-size: 18px;
-    line-height: 22px;
-    border-radius: 10px;
-    background-color: var(--purple);
-    color: var(--white);
+    font-size: 16px;
+    line-height: 20px;
+    color: var(--purple);
     transition: opacity .3s ease;
 }
 
-.btnContainer {
-    display: flex;
-    justify-content: center;
-    margin: 10px auto
+.addBtn:hover {
+    opacity: .7;
 }
 
-.btnSavePosition:hover {
-    opacity: .8;
+.Pattern {
+    margin-bottom: 100px;
 }
 
-@media (max-width: 599px) {
-    .sendBtn {
-        width: 100%;
-    }
+.NewPos {
+    cursor: pointer;
+    display: block;
+}
+
+.NewPos:focus {
+    color: red;
 }

@@ -1,10 +1,3 @@
-/* .wrapper {
-    width: calc(175/870 * 100%);
-    border: 1px solid var(--ultra-grey);
-    margin-top: -1px;
-    margin-left: -1px;
-} */
-
 .item {
     position: relative;
 }
@@ -15,10 +8,6 @@
     padding: 16.3px 20px;
     z-index: 10;
 }
-
-/* .itemHeader {
-    border-bottom: 1px solid var(--ultra-grey);
-} */
 
 .itemName {
     font-size: 14px;

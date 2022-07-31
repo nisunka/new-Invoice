@@ -7,7 +7,7 @@ type Props = FieldRenderProps<number, any>;
 
 const PositionCount: React.FC<Props> = ({ input, meta, ...rest }: Props) => {
   return (
-    <div className={style.wrapper}>
+    <div>
       <div className={style.item}>
         <div className={style.itemHeader}>
           <span className={style.itemName}>Количество</span>

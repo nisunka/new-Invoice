@@ -1,8 +1,8 @@
 import React from "react";
+import { IPosition } from "./Position.interface";
 import { Field } from "react-final-form";
 import { FieldArray } from "react-final-form-arrays";
 import { MatchMediaWrapper } from "../../MatchMedia/MatchMediaWrapper";
-import style from "./Position.module.css";
 import PositionCount from "./PositionCount/PositionCount";
 import PositionNds from "./PositionNds/PositionNds";
 import { positionsWhat, positionsNds } from "./positionOptions";
@@ -10,22 +10,10 @@ import PositionPrice from "./PositionPrice/PositionPrice";
 import PositionTotal from "./PositionTotal/PositionTotal";
 import PositionWhat from "./PositionWhat/PositionWhat";
 import AddPositionDesktop from "./AddPositionDesktop/AddPositionDesktop";
-import AddPositionMobile from "./AddPositionMobile/AddPositionMobile";
 import PositionHeader from "./PositionHeader/PositionHeader";
-
-interface IPosition {
-  initialValue: any;
-  values: any;
-  addPosition: any;
-  deletePosition: any;
-  duplicatePosition: any;
-}
-
-const maxCount = (max: number) => (value: string | number) =>
-  value >= max ? `Макс. ${max}` : undefined;
-
-const maxPrice = (max: number) => (value: string | number) =>
-  Number(value) >= max ? `Макс. ${max} ₽` : undefined;
+import { maxCount, maxPrice } from "../validation/validatePosition";
+import PositionMobile from "./PositionMobile/PositionMobile";
+import style from "./Position.module.css";
 
 const Position = ({
   initialValue,
@@ -96,7 +84,7 @@ const Position = ({
 
   const mobileContent = (
     <div>
-      <AddPositionMobile
+      <PositionMobile
         values={values}
         initialValue={initialValue}
         addPosition={addPosition}

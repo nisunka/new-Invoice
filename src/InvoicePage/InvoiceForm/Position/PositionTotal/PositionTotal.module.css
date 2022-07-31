@@ -1,11 +1,3 @@
-/* .wrapper {
-    width: calc(175/870 * 100%);
-    border: 1px solid var(--ultra-grey);
-    margin-top: -1px;
-    margin-left: -1px;
-    border-bottom-right-radius: 6px;
-} */
-
 .item {
     position: relative;
 }
