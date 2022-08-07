@@ -15,13 +15,19 @@ const OptionalBase: React.FC<Props> = ({
 }: Props) => {
   return (
     <div className={style.container} tabIndex={0}>
-      <div className={style.leftSide}>
+      <label htmlFor="input-name" className={style.leftSide}>
         <div className={style.leftWrapper}>
           <span className={style.namePosition}>Должность и ФИО заказчика</span>
         </div>
-      </div>
+      </label>
       <div className={style.rightSide}>
-        <input className={style.input} type="text" {...input} {...rest} />
+        <input
+          className={style.input}
+          type="text"
+          id="input-name"
+          {...input}
+          {...rest}
+        />
         <span className={style.counter}>
           {CounterSymbols(valueLength, maxSymbols)}
         </span>

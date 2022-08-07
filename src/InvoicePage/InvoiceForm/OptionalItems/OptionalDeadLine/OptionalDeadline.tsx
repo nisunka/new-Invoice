@@ -11,16 +11,17 @@ type Props = FieldRenderProps<string, any>;
 const OptionalDeadline: React.FC<Props> = ({ input, meta, ...rest }: Props) => {
   return (
     <div className={style.container} tabIndex={0}>
-      <div className={style.leftSide}>
+      <label htmlFor="input-deadline" className={style.leftSide}>
         <div className={style.leftWrapper}>
           <span className={style.namePosition}>Срок оплаты</span>
           <div className={style.tooltip}>
             <TooltipDeadline>{deadLineTooltipMessage}</TooltipDeadline>
           </div>
         </div>
-      </div>
+      </label>
       <div className={style.rightSide}>
         <input
+          id="input-deadline"
           className={style.input}
           type="text"
           {...input}

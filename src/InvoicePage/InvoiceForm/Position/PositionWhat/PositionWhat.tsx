@@ -18,25 +18,30 @@ const PositionWhat: React.FC<Props> = ({
   return (
     <div>
       <div className={style.item}>
-        <div className={style.itemHeader}>
-          <span className={style.itemName}>Ед.измер.</span>
-        </div>
-        <div className={style.itemValue}>
-          <Select
-            styles={customStyles}
-            components={{ DropdownIndicator }}
-            defaultValue={options[1]}
-            {...input}
-            {...rest}
-            onChange={handleChange}
-            options={options}
-            value={
-              options
-                ? options.find((option: Option) => option.value === input.value)
-                : ""
-            }
-          />
-        </div>
+        <label htmlFor="input-positionWhat">
+          <div className={style.itemHeader}>
+            <span className={style.itemName}>Ед.измер.</span>
+          </div>
+          <div className={style.itemValue}>
+            <Select
+              id="input-positionWhat"
+              styles={customStyles}
+              components={{ DropdownIndicator }}
+              defaultValue={options[1]}
+              {...input}
+              {...rest}
+              onChange={handleChange}
+              options={options}
+              value={
+                options
+                  ? options.find(
+                      (option: Option) => option.value === input.value
+                    )
+                  : ""
+              }
+            />
+          </div>
+        </label>
       </div>
     </div>
   );

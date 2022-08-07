@@ -8,12 +8,20 @@ const PositionTotal: React.FC<Props> = ({ input, meta, ...rest }: Props) => {
   return (
     <div>
       <div className={style.item}>
-        <div className={style.itemHeader}>
-          <span className={style.itemName}>Итого</span>
-        </div>
-        <div className={style.itemValue}>
-          <input className={style.input} type="number" {...input} {...rest} />
-        </div>
+        <label htmlFor="input-positionTotal">
+          <div className={style.itemHeader}>
+            <span className={style.itemName}>Итого</span>
+          </div>
+          <div className={style.itemValue}>
+            <input
+              className={style.input}
+              id="input-positionTotal"
+              type="number"
+              {...input}
+              {...rest}
+            />
+          </div>
+        </label>
       </div>
     </div>
   );

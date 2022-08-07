@@ -1,5 +1,5 @@
 .header {
-    padding: 17px 20px 27px 20px;
+    padding: 15px 20px 24px 20px;
     border: 1px solid var(--ultra-grey);
     border-radius: 6px 6px 0px 0px;
     position: relative;
@@ -41,7 +41,8 @@
 
 @media (max-width: 599px) {
     .header {
-        padding: 0;
+        padding: 30px 0 0 0;
+        margin-bottom: 15px;
         border: none;
         border-bottom: 1px solid var(--ultra-grey);
         transition: border-color .3s ease;
@@ -66,12 +67,14 @@
 
     .textarea {
         margin: 15px 0 5px 0;
-        width: 80%;
+        width: 100%;
     }
 
     .counter {
+        position: relative;
+        display: flex;
+        justify-content: end;
+        margin-bottom: 2px;
         right: 0%;
-        top: 75%;
     }
-
 }

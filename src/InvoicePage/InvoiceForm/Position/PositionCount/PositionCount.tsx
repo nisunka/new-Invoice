@@ -9,13 +9,21 @@ const PositionCount: React.FC<Props> = ({ input, meta, ...rest }: Props) => {
   return (
     <div>
       <div className={style.item}>
-        <div className={style.itemHeader}>
-          <span className={style.itemName}>Количество</span>
-        </div>
-        <div className={style.itemValue}>
-          <input className={style.input} type="number" {...input} {...rest} />
-          <span className={errorStyle.message}>{meta.error}</span>
-        </div>
+        <label htmlFor="input-positionCount">
+          <div className={style.itemHeader}>
+            <span className={style.itemName}>Количество</span>
+          </div>
+          <div className={style.itemValue}>
+            <input
+              className={style.input}
+              id="input-positionCount"
+              type="number"
+              {...input}
+              {...rest}
+            />
+            <span className={errorStyle.message}>{meta.error}</span>
+          </div>
+        </label>
       </div>
     </div>
   );

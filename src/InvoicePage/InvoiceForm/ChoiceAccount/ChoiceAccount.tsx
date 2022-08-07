@@ -23,13 +23,14 @@ const ChoiceAccount: React.FC<Props> = ({
 
   return (
     <div className={`${style.container} containerChoiceAccount`} tabIndex={0}>
-      <div className={style.leftSide}>
+      <label htmlFor="select-choiceAccount" className={style.leftSide}>
         <div>
           <span className={style.namePosition}>Выберите счёт</span>
         </div>
-      </div>
+      </label>
       <div className={style.rightSide}>
         <Select<tochkaAccount | otherAccount, false, groupedOption>
+          id="select-choiceAccount"
           styles={customStyles}
           components={{ DropdownIndicator }}
           defaultValue={tochkaAccount[0]}

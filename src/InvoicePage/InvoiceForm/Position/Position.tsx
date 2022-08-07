@@ -2,7 +2,6 @@ import React from "react";
 import { IPosition } from "./Position.interface";
 import { Field } from "react-final-form";
 import { FieldArray } from "react-final-form-arrays";
-import { MatchMediaWrapper } from "../../MatchMedia/MatchMediaWrapper";
 import PositionCount from "./PositionCount/PositionCount";
 import PositionNds from "./PositionNds/PositionNds";
 import { positionsWhat, positionsNds } from "./positionOptions";
@@ -12,7 +11,6 @@ import PositionWhat from "./PositionWhat/PositionWhat";
 import AddPositionDesktop from "./AddPositionDesktop/AddPositionDesktop";
 import PositionHeader from "./PositionHeader/PositionHeader";
 import { maxCount, maxPrice } from "../validation/validatePosition";
-import PositionMobile from "./PositionMobile/PositionMobile";
 import style from "./Position.module.css";
 
 const Position = ({
@@ -22,7 +20,7 @@ const Position = ({
   deletePosition,
   duplicatePosition,
 }: IPosition) => {
-  const desktopContent = (
+  return (
     <div>
       <FieldArray name="positions" initialValue={initialValue}>
         {({ positions }: any) =>
@@ -31,7 +29,11 @@ const Position = ({
               <div className={style.container}>
                 <PositionHeader
                   name={`positions.${index}.title`}
-                  valueLength={values.positions[index].title.length}
+                  valueLength={
+                    typeof values.positions[index].title === "string"
+                      ? values.positions[index].title.length
+                      : 0
+                  }
                   deletePosition={() => deletePosition(index)}
                   duplicatePosition={() => duplicatePosition(index)}
                 />
@@ -80,25 +82,6 @@ const Position = ({
 
       <AddPositionDesktop addPosition={addPosition} />
     </div>
-  );
-
-  const mobileContent = (
-    <div>
-      <PositionMobile
-        values={values}
-        initialValue={initialValue}
-        addPosition={addPosition}
-        deletePosition={deletePosition}
-        duplicatePosition={duplicatePosition}
-      />
-    </div>
-  );
-
-  return (
-    <MatchMediaWrapper
-      mobileContent={mobileContent}
-      desktopContent={desktopContent}
-    />
   );
 };
 

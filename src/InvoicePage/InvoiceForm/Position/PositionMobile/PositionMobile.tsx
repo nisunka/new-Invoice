@@ -1,5 +1,9 @@
+import { push } from "final-form-arrays";
+import { useEffect, useState } from "react";
 import { ReactComponent as MiniPlusIcon } from "../../../../assets/img/icon/miniPlusIcon.svg";
 import style from "./PositionMobile.module.css";
+import PositionMobileForm from "./PositionMobileForm/PositionMobileForm";
+import PositionMobilePattern from "./PositionMobilePattern/PositionMobilePattern";
 // import PositionMobilePattern from "./PositionMobilePattern/PositionMobilePattern";
 
 interface IPositionMobile {
@@ -8,6 +12,7 @@ interface IPositionMobile {
   addPosition: any;
   deletePosition: any;
   duplicatePosition: any;
+  pushPosit: any;
 }
 
 const PositionMobile = ({
@@ -16,50 +21,59 @@ const PositionMobile = ({
   addPosition,
   deletePosition,
   duplicatePosition,
+  pushPosit,
 }: IPositionMobile) => {
-  // открытие позиции
-  // const [openNewPosition, setOpenNewPosition] = useState(false);
+  // состояние открытого или закрытого портала
+  const [openForm, setOpenForm] = useState(false);
+  // закрыть форму кнопкой назад
+  const closeForm = () => {
+    document.querySelector("#root")!.classList.remove("fixedRoot");
+    setOpenForm(!setOpenForm);
+  };
 
-  // создание компонента позиция
-  // const [showPosition, setShowPosition] = useState(false);
+  // кнопка передать values и отрендерить компонент
+  const [openPattern, setOpenPattern] = useState(false);
+  let newPattern = null;
+  const renderPattern = (values: any) => {
+    setOpenPattern(true);
+    console.log("зашло в функцию рендера", values);
+  };
 
-  // открыть позицию
-  // const addNewPosition = () => {
-  //   addPosition();
-  //   setOpenNewPosition(true);
-  //   document.querySelector("#root")!.classList.add("fixedRoot");
-  // };
+  if (openPattern) {
+    newPattern =
+      "Вот сюда должен рендерится компонент с данными из модалки <PositionMobilePattern />";
+  } else {
+    newPattern = null;
+  }
 
-  // нажатие на кнопку сохранить внутри создания позиции
-  // const handlerClick = (values: any) => {
-  //   setShowPosition(!showPosition);
-  //   setOpenNewPosition(false);
-  //   document.querySelector("#root")!.classList.remove("fixedRoot");
-  // };
-
-  // let pattern = null;
-
-  // if (showPosition) {
-  //   pattern = <PositionMobilePattern />;
-  // } else {
-  //   pattern = null;
-  // }
-
-  // const addPositionMobile = () => {
-  //   document.querySelector("#root")!.classList.add("fixedRoot");
-  //   setOpenNewPosition(true);
-  // };
+  // генерация просто формы над позицией
+  let formOpened = null;
+  // кнопка добавить позицию
+  if (openForm === true) {
+    document.querySelector("#root")!.classList.add("fixedRoot");
+    formOpened = (
+      <PositionMobileForm
+        closeForm={closeForm}
+        initialValue={initialValue}
+        values={values}
+        pushPosit={pushPosit}
+        renderPattern={renderPattern}
+      />
+    );
+  } else {
+    formOpened = null;
+  }
 
   return (
     <div>
       <div className={style.container}>
-        {/* {openNewPosition && ()} */}
-
+        {formOpened}
+        {newPattern}
         <div className={style.btnWrapper}>
           <button
             type="button"
             className={style.addBtn}
-            // onClick={addPositionMobile}
+            onClick={() => setOpenForm(true)}
           >
             <MiniPlusIcon />
             <span>Добавить позицию</span>

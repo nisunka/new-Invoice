@@ -1,11 +1,15 @@
 export const customStyles = {
   indicatorSeparator: () => ({ display: "none" }),
+  container: (base: any) => ({
+    ...base,
+    padding: "5px 12px 8px 20px",
+  }),
   dropdownIndicator: (base: any, state: any) => ({
     ...base,
     transition: "all .2s ease",
     transform: state.selectProps.menuIsOpen ? "rotate(180deg)" : null,
   }),
-  menu: (base: any, state: any) => ({
+  menu: (base: any) => ({
     ...base,
     display: "absolute",
     left: "0",
@@ -16,8 +20,7 @@ export const customStyles = {
   option: (provided: any, state: any) => ({
     ...provided,
     color: "black",
-    padding: 14,
-    borderRadius: 10,
+    padding: "14px 20px",
     cursor: state.isDisabled ? "auto" : "pointer",
     backgroundColor: state.isFocused ? "var(--grey-transparent-01)" : null,
   }),

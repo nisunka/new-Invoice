@@ -17,13 +17,16 @@ const PositionHeader = ({
   useOnClickOutside(refOpenMenu, () => setOpenMenu(false));
   return (
     <div className={style.header}>
-      <Field<string>
-        name={name}
-        component={PositionTitle}
-        placeholder="Название товара или услуги"
-        valueLength={valueLength!}
-        maxSymbols={500}
-      />
+      <label htmlFor="input-positionTitle">
+        <Field<string>
+          id="input-positionTitle"
+          name={name}
+          component={PositionTitle}
+          placeholder="Название товара или услуги"
+          valueLength={valueLength!}
+          maxSymbols={500}
+        />
+      </label>
       <div ref={refOpenMenu}>
         <button
           type="button"

@@ -16,7 +16,7 @@
 }
 
 .rightSide {
-    padding: 16.8px 20px;
+    padding: 15px 20px;
     width: calc(600/870 * 100%);
     border: 1px solid var(--ultra-grey);
     border-radius: 0 6px 6px 0;
@@ -25,7 +25,7 @@
 
 .leftSide {
     width: calc(270/806 * 100%);
-    padding: 18px 20px;
+    padding: 16.8px 20px;
     border: 1px solid var(--ultra-grey);
     border-radius: 6px 0 0 6px;
     margin-right: -1px;

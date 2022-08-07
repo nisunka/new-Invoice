@@ -18,7 +18,7 @@
 
 
 .rightSide {
-    padding: 18.7px 20px;
+    padding: 15.2px 20px;
     width: calc(600/870 * 100%);
     border: 1px solid var(--ultra-grey);
     transition: box-shadow .3s ease-in-out;
@@ -26,7 +26,7 @@
 
 .leftSide {
     width: calc(270/806 * 100%);
-    padding: 20px 20px;
+    padding: 16.5px 20px;
     border: 1px solid var(--ultra-grey);
     margin-right: -1px;
     transition: color .3s ease-in-out;

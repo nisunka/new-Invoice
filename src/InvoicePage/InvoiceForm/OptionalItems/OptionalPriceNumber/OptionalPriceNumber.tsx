@@ -15,13 +15,14 @@ const OptionalPriceNumber: React.FC<Props> = ({
 }: Props) => {
   return (
     <div className={style.container} tabIndex={0}>
-      <div className={style.leftSide}>
+      <label htmlFor="input-price" className={style.leftSide}>
         <div className={style.leftWrapper}>
           <span className={style.namePosition}>Номер выставляемого счёта</span>
         </div>
-      </div>
+      </label>
       <div className={style.rightSide}>
         <input
+          id="input-price"
           className={style.input}
           type="text"
           {...input}

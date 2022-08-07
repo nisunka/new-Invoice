@@ -3,7 +3,7 @@
 }
 
 .positionBtn {
-    z-index: 11;
+    z-index: 1;
     position: absolute;
     top: 15px;
     right: 20px;

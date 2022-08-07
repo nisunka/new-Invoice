@@ -1,5 +1,9 @@
 export const customStyles = {
   indicatorSeparator: () => ({ display: "none" }),
+  container: (base: any) => ({
+    ...base,
+    padding: "0 20px",
+  }),
   dropdownIndicator: (base: any, state: any) => ({
     ...base,
     transition: "all .2s ease",

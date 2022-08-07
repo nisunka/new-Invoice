@@ -1,20 +1,21 @@
 import { Field } from "react-final-form";
 import { IAddSign } from "./AddSign.interface";
-import { ReactComponent as PlusIcon } from "../../../../assets/img/icon/plusIcon.svg";
+import { ReactComponent as PlusIcon } from "../../../assets/img/icon/plusIcon.svg";
 import style from "./AddSign.module.css";
 
 const AddSign = ({ name, value }: IAddSign) => {
   return (
     <div className={style.container}>
-      <div className={style.wrapper}>
+      <label htmlFor="input-switch" className={style.wrapper}>
         <span className={style.title}>Добавить подпись или печать</span>
         <Field<boolean>
+          id="input-switch"
           name={name}
           component="input"
           type="checkbox"
           className={style.switch}
         />
-      </div>
+      </label>
 
       {value === true && (
         <div className={style.wrapperLoading}>

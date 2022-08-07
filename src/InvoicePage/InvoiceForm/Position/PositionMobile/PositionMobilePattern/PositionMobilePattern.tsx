@@ -1,7 +1,12 @@
 import React from "react";
 import style from "./PositionMobilePattern.module.css";
 
-const PositionMobilePattern = () => {
+interface IPositionMobilePattern {
+  values: any;
+}
+
+const PositionMobilePattern = ({ values }: IPositionMobilePattern) => {
+  console.log(values.name);
   return (
     <div className={style.container}>
       <div className={style.wrapper}>
@@ -9,7 +14,7 @@ const PositionMobilePattern = () => {
           <div className={style.headLeftSide}>
             <div className={style.headTitle}>
               {/* название позиции */}
-              Schneider Electric EASY 9 C32 30мА
+              {values.name}
             </div>
             <div className={style.headPriceWhat}>
               <div className={style.headPrice}>{/* цена */}1 500 ₽ </div>

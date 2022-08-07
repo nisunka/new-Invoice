@@ -13,13 +13,14 @@ const OptionalDataOfCreation: React.FC<Props> = ({
 }: Props) => {
   return (
     <div className={style.container} tabIndex={0}>
-      <div className={style.leftSide}>
+      <label htmlFor="input-dataOfCreation" className={style.leftSide}>
         <div className={style.leftWrapper}>
           <span className={style.namePosition}>Дата выставления</span>
         </div>
-      </div>
+      </label>
       <div className={style.rightSide}>
         <input
+          id="input-dataOfCreation"
           className={style.input}
           type="text"
           {...input}

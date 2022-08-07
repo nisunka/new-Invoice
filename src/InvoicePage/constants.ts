@@ -13,3 +13,17 @@ export const initialInvoiceValues = {
   },
   withApproved: false,
 };
+
+export const initialInvoiceValuesMobile = {
+  choiceAccount: "",
+  partnerName: "",
+  positions: [],
+  additional: {
+    base: "",
+    name: "",
+    priceNumber: "",
+    dataOfCreation: "",
+    deadLine: "",
+  },
+  withApproved: false,
+};

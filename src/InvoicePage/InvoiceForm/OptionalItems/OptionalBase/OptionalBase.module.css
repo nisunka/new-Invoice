@@ -18,7 +18,7 @@
 
 .rightSide {
     position: relative;
-    padding: 18.8px 20px;
+    padding: 19.8px 20px;
     width: calc(600/870 * 100%);
     border: 1px solid var(--ultra-grey);
     border-top-right-radius: 6px;
@@ -43,7 +43,7 @@
 
 .leftSide {
     width: calc(270/806 * 100%);
-    padding: 20.7px 20px;
+    padding: 21.7px 20px;
     border: 1px solid var(--ultra-grey);
     border-top-left-radius: 6px;
     margin-right: -1px;
@@ -96,12 +96,9 @@
 
     .container:focus .rightSide,
     .container:focus-within .rightSide {
-        box-shadow: none
-    }
-
-    .container:focus .rightSide,
-    .container:focus-within .rightSide {
+        box-shadow: none;
         border-bottom: var(--purple) 1px solid;
+        z-index: 5;
     }
 
 }

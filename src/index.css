@@ -12,6 +12,12 @@
   src: local(""), url("./assets/fonts/TTNorms-Medium.woff2") format("woff2");
 }
 
+*,
+*::before,
+*::after {
+  outline: transparent;
+}
+
 body {
   margin: 0;
   font-family: "TT Norms", sans-serif;
@@ -31,6 +37,7 @@ body {
 
   /* colors */
   --white: #fff;
+  --grey-100: #F6F6F6;
   --ultra-grey: #E1E1E1;
   --medium-grey: #747474;
   --grey: #B2B2B2;

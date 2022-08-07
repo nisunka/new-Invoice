@@ -1,0 +1,16 @@
+.saveBtn {
+    margin: 10px 0;
+    width: 100%;
+    padding: 14px 15px;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: var(--white);
+    background-color: var(--purple);
+}
+
+.saveBtn:disabled {
+    color: var(--grey);
+    background-color: var(--grey-100);
+}

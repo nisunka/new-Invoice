@@ -1,4 +1,5 @@
-.containerTooltip {
+.containerTooltip,
+.containerTooltipMobile {
     position: absolute;
     width: 260px;
     height: 38px;
@@ -25,5 +26,3 @@
     color: var(--dark);
     white-space: pre-line;
 }
-
-

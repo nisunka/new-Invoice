@@ -23,7 +23,9 @@ const OptionalItems = ({ values }: IOptionalItems) => {
         component={OptionalBase}
         placeholder="Необязательно"
         validate={maxValue(210, 0)}
-        valueLength={String(values.base.length)}
+        valueLength={
+          typeof values.base === "string" ? String(values.base.length) : 0
+        }
         maxSymbols={210}
       />
       <Field<string>
@@ -31,7 +33,9 @@ const OptionalItems = ({ values }: IOptionalItems) => {
         component={OptionalName}
         placeholder="Должность и ФИО заказчика"
         validate={maxValue(120, 0)}
-        valueLength={String(values.name.length)}
+        valueLength={
+          typeof values.name === "string" ? String(values.name.length) : 0
+        }
         maxSymbols={120}
       />
       <Field<string>
@@ -39,7 +43,11 @@ const OptionalItems = ({ values }: IOptionalItems) => {
         component={OptionalPriceNumber}
         placeholder="Укажите номер счёта"
         validate={maxValue(24, 4)}
-        valueLength={Number(values.priceNumber.length)}
+        valueLength={
+          typeof values.priceNumber === "string"
+            ? String(values.priceNumber.length)
+            : 0
+        }
         parse={formatString(maskPriceNumber.parse)}
       />
       <Field<string>

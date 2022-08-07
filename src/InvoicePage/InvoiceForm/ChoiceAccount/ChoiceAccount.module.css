@@ -24,7 +24,7 @@
 
 .leftSide {
     width: calc(270/870 * 100%);
-    padding: 18px 20px;
+    padding: 16px 20px;
     border: 1px solid var(--ultra-grey);
     border-radius: 6px 0 0 6px;
     margin-right: -1px;
@@ -36,7 +36,6 @@
     line-height: 18px;
     color: var(--dark);
 }
-
 
 @media (max-width: 599px) {
     .container {
