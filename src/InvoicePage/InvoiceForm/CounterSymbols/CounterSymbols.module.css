@@ -1,0 +1,23 @@
+.count,
+.countError {
+    font-family: 'TT Norms';
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+.count {
+    color: var(--grey);
+}
+
+.countError {
+    color: var(--red);
+}
+
+@media (max-width: 599px) {
+    .count {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: end;
+    }
+}

@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.title {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: .01em;
+    color: #333;
+}
+
+/* button */
+button .iconBtn circle {
+    transition: stroke .3s ease-in-out;
+}
+
+button:hover .iconBtn {
+    transition: fill .3s ease-in-out;
+}
+
+
+button:hover .iconBtn circle {
+    stroke: var(--purple-transparent-05);
+}
+
+button:hover .iconBtn {
+    fill: var(--purple-transparent-01);
+}

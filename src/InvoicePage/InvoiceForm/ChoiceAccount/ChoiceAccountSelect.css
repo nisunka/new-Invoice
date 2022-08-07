@@ -1,0 +1,105 @@
+/* style select */
+form .css-18ng2q5-group {
+    font-size: 16px;
+    line-height: 20px;
+    color: var(--medium-grey);
+    text-transform: none;
+    cursor: pointer;
+    padding: 15px 20px;
+    margin: 0;
+}
+
+form .css-1y71lnp-option {
+    cursor: pointer;
+}
+
+form .choiceAccountOption {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+form .css-4ljt47-MenuList {
+    padding: 0;
+}
+
+form .css-syji7d-Group {
+    padding: 0;
+}
+
+form .css-syji7d-Group:last-child {
+    margin-top: 30px;
+}
+
+form .css-1jwi8f4-singleValue .choiceAccountOptionImage {
+    width: 34px;
+    height: 34px;
+}
+
+form .choiceAccountOptionImage {
+    width: 44px;
+    height: 44px;
+}
+
+form .css-26l3qy-menu {
+    z-index: 18;
+    left: 0%;
+    width: 200%;
+    border-radius: 10px;
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+form .css-pmdqt5-option:last-child {
+    border-radius: 10px;
+}
+
+form .rightSide .css-26l3qy-menu {
+    width: 100%;
+}
+
+form .css-4ljt47-MenuList {
+    max-height: 280px;
+}
+
+form .css-1y71lnp-option,
+form .css-18m5u3o-option {
+    padding: 14px 20px;
+}
+
+form .css-11msr9p-Control {
+    width: 100%;
+    padding-top: 1.5px;
+}
+
+form .css-b62m3t-container {
+    padding: 8px 12px 8px 20px;
+}
+
+form .css-319lph-ValueContainer {
+    padding-left: 0;
+}
+
+
+@media (max-width: 599px) {
+    form .css-26l3qy-menu {
+        top: 130%;
+        width: 100%;
+    }
+
+    form .css-b62m3t-container {
+        padding-left: 0;
+    }
+
+    form .css-u5diow-container {
+        padding: 0;
+    }
+
+    form .css-1qoyqpb-menu {
+        top: 110%
+    }
+
+    form .css-1pzz25z-container {
+        padding: 0;
+    }
+
+}

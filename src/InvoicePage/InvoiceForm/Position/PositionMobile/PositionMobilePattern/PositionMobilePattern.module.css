@@ -1,0 +1,56 @@
+.container {
+    padding: 15px 0;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.headLeftSide {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.headPriceWhat {
+    display: flex;
+}
+
+.body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bodyRightSide {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.headTitle,
+.bodyTotal {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: var(--dark);
+}
+
+.bodyTotal {
+    font-weight: 500;
+}
+
+.headPrice,
+.headWhat,
+.bodyNds {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: var(--medium-grey);
+}
