@@ -1,6 +1,15 @@
 import { push } from "final-form-arrays";
 import { useEffect, useState } from "react";
+import { Field } from "react-final-form";
+import { FieldArray } from "react-final-form-arrays";
 import { ReactComponent as MiniPlusIcon } from "../../../../assets/img/icon/miniPlusIcon.svg";
+import PositionCount from "../PositionCount/PositionCount";
+import PositionHeader from "../PositionHeader/PositionHeader";
+import PositionNds from "../PositionNds/PositionNds";
+import { positionsNds, positionsWhat } from "../positionOptions";
+import PositionPrice from "../PositionPrice/PositionPrice";
+import PositionTotal from "../PositionTotal/PositionTotal";
+import PositionWhat from "../PositionWhat/PositionWhat";
 import style from "./PositionMobile.module.css";
 import PositionMobileForm from "./PositionMobileForm/PositionMobileForm";
 import PositionMobilePattern from "./PositionMobilePattern/PositionMobilePattern";
@@ -33,18 +42,27 @@ const PositionMobile = ({
 
   // кнопка передать values и отрендерить компонент
   const [openPattern, setOpenPattern] = useState(false);
-  let newPattern = null;
+  let patternS = null;
+  if (openPattern) {
+    patternS = (
+      <FieldArray name="positions" initialValue={values}>
+        {({ positions }: any) =>
+          values.positions.map((name: string, index: number) => (
+            <div key={index}>
+              <PositionMobilePattern values={values} />
+            </div>
+          ))
+        }
+      </FieldArray>
+    );
+  } else {
+    let patternS = null;
+  }
+
   const renderPattern = (values: any) => {
     setOpenPattern(true);
     console.log("зашло в функцию рендера", values);
   };
-
-  if (openPattern) {
-    newPattern =
-      "Вот сюда должен рендерится компонент с данными из модалки <PositionMobilePattern />";
-  } else {
-    newPattern = null;
-  }
 
   // генерация просто формы над позицией
   let formOpened = null;
@@ -67,8 +85,8 @@ const PositionMobile = ({
   return (
     <div>
       <div className={style.container}>
+        {patternS}
         {formOpened}
-        {newPattern}
         <div className={style.btnWrapper}>
           <button
             type="button"

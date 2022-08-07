@@ -31,6 +31,7 @@ const PositionMobNewForm = ({
     window.alert(JSON.stringify(values));
     pushPosit(values);
     console.log("зашло в функцию отправки");
+    console.log(values);
     renderPattern(values);
   };
 

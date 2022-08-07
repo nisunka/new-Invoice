@@ -186,11 +186,7 @@ const InvoiceForm = () => {
                     duplicatePosition={(index: number) =>
                       insert("positions", index, values.positions[index])
                     }
-                    pushPosit={(values: any) =>
-                      push("positions", {
-                        values,
-                      })
-                    }
+                    pushPosit={(position: any) => push("positions", position)}
                   />
                 </div>
               </div>

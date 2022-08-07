@@ -14,7 +14,7 @@ const PositionMobilePattern = ({ values }: IPositionMobilePattern) => {
           <div className={style.headLeftSide}>
             <div className={style.headTitle}>
               {/* название позиции */}
-              {values.name}
+              Имя позиции
             </div>
             <div className={style.headPriceWhat}>
               <div className={style.headPrice}>{/* цена */}1 500 ₽ </div>
