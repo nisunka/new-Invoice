@@ -8,7 +8,6 @@ import {
 } from "./choiceAccountOptions";
 import { DropdownIndicator } from "../DropdownIndicator/DropdownIndicator";
 import { customStyles } from "./customStyles";
-import "./ChoiceAccountSelect.css";
 import style from "./ChoiceAccount.module.css";
 
 const ChoiceAccount: React.FC<Props> = ({
@@ -30,19 +29,18 @@ const ChoiceAccount: React.FC<Props> = ({
       </label>
       <div className={style.rightSide}>
         <Select<tochkaAccount | otherAccount, false, groupedOption>
+          {...input}
+          {...rest}
+          options={options}
           id="select-choiceAccount"
           styles={customStyles}
           components={{ DropdownIndicator }}
-          defaultValue={tochkaAccount[0]}
-          {...input}
-          {...rest}
-          onChange={handleChange}
-          options={options}
           value={
-            options
-              ? options.find((option: Option) => option.value === input.value)
-              : ""
+            options.find((option: Option) => option.value === input.value) ||
+            tochkaAccount[0]
           }
+          defaultValue={tochkaAccount[0]}
+          onChange={handleChange}
           formatOptionLabel={(country) => (
             <div className="choiceAccountOption">
               <img

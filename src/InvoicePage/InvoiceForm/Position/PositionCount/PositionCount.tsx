@@ -6,7 +6,12 @@ import style from "./PositionCount.module.css";
 
 type Props = FieldRenderProps<number, any>;
 
-const PositionCount: React.FC<Props> = ({ input, meta, ...rest }: Props) => {
+const PositionCount: React.FC<Props> = ({
+  value,
+  input,
+  meta,
+  ...rest
+}: Props) => {
   return (
     <div>
       <div className={style.item}>
@@ -16,11 +21,11 @@ const PositionCount: React.FC<Props> = ({ input, meta, ...rest }: Props) => {
           </div>
           <div className={`${style.itemValue} borderMobileErrorCount`}>
             <input
+              {...input}
+              {...rest}
               className={style.input}
               id="input-positionCount"
               type="string"
-              {...input}
-              {...rest}
               onKeyPress={validate}
             />
             <span className={errorStyle.message}>{meta.error}</span>

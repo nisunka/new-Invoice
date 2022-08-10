@@ -17,7 +17,7 @@ const AddSign = ({ name, value }: IAddSign) => {
         />
       </label>
 
-      {value === true && (
+      {value && (
         <div className={style.wrapperLoading}>
           <PlusIcon />
           <input

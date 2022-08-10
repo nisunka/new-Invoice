@@ -2,7 +2,10 @@ import { Field, Form } from "react-final-form";
 import { IInvoiceForm } from "./InvoiceForm.interface";
 import { initialInvoiceValues, initialInvoiceValuesMobile } from "../constants";
 import ChoiceAccount from "./ChoiceAccount/ChoiceAccount";
-import { groupedAccounts } from "./ChoiceAccount/choiceAccountOptions";
+import {
+  groupedAccounts,
+  tochkaAccount,
+} from "./ChoiceAccount/choiceAccountOptions";
 import TitleForm from "./TitleForm/TitleForm";
 import PartnerName from "./PartnerName/PartnerName";
 import arrayMutators from "final-form-arrays";
@@ -16,6 +19,9 @@ import PositionMobile from "./Position/PositionMobile/PositionMobile";
 
 const InvoiceForm = () => {
   const onSubmit = async (values: IInvoiceForm) => {
+    if (values.choiceAccount === "") {
+      values.choiceAccount = tochkaAccount[0].value;
+    }
     console.log(JSON.stringify(values, undefined, 2));
   };
 

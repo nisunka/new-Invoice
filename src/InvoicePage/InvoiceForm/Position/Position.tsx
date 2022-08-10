@@ -42,6 +42,7 @@ const Position = ({
                       name={`positions.${index}.count`}
                       component={PositionCount}
                       validate={maxCount(99999)}
+                      value={values.count}
                     />
                   </div>
                   <div className={style.bodyItem}>

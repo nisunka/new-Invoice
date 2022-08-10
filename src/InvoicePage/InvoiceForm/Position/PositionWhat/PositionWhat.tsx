@@ -24,20 +24,18 @@ const PositionWhat: React.FC<Props> = ({
           </div>
           <div className={style.itemValue}>
             <Select
+              {...input}
+              {...rest}
+              options={options}
               id="input-positionWhat"
               styles={customStyles}
               components={{ DropdownIndicator }}
               defaultValue={options[1]}
-              {...input}
-              {...rest}
               onChange={handleChange}
-              options={options}
               value={
-                options
-                  ? options.find(
-                      (option: Option) => option.value === input.value
-                    )
-                  : ""
+                options.find(
+                  (option: Option) => option.value === input.value
+                ) || ""
               }
             />
           </div>
