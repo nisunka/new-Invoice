@@ -1,4 +1,3 @@
-import React from "react";
 import { Field, Form } from "react-final-form";
 import { IInvoiceForm } from "./InvoiceForm.interface";
 import { initialInvoiceValues, initialInvoiceValuesMobile } from "../constants";
@@ -170,16 +169,7 @@ const InvoiceForm = () => {
                   <PositionMobile
                     initialValue={values.positions}
                     values={values}
-                    addPosition={() =>
-                      push("positions", {
-                        title: "",
-                        count: 1,
-                        what: "шт.",
-                        price: "",
-                        nds: "Без НДС",
-                        total: 0,
-                      })
-                    }
+                    addPosition={(value: any) => push(value)}
                     deletePosition={(index: number) =>
                       remove("positions", index)
                     }

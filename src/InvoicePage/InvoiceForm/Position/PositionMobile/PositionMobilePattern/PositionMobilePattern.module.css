@@ -9,6 +9,7 @@
 }
 
 .head {
+    position: relative;
     display: flex;
     justify-content: space-between;
 }
@@ -42,6 +43,11 @@
     color: var(--dark);
 }
 
+.headTitle {
+    width: 90%;
+    word-break: break-all;
+}
+
 .bodyTotal {
     font-weight: 500;
 }
@@ -49,8 +55,47 @@
 .headPrice,
 .headWhat,
 .bodyNds {
+    white-space: pre-wrap;
     font-weight: 400;
     font-size: 12px;
     line-height: 15px;
     color: var(--medium-grey);
+}
+
+.positionBtn {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../../../../../assets/img/icon/positionMenuDesktopIcon.svg');
+}
+
+/* counter button */
+.counterBtn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--grey-100);
+}
+
+.counterBtn>button {
+    line-height: 0;
+}
+
+.counterBtn>button,
+.counterBtn>span {
+    color: var(--dark);
+}
+
+.counterBtn>span {
+    font-size: 16px;
+    line-height: 20px;
 }

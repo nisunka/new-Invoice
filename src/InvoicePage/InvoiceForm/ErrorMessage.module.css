@@ -15,16 +15,30 @@
 }
 
 @media (max-width: 599px) {
+    .message {
+        position: absolute;
+        top: 60%;
+        left: 0;
+    }
 
     .messageOptionalBlock {
         position: absolute;
     }
 
     .optionalBase,
-    .optionalName,
+    .optionalName {
+        left: 0;
+        bottom: -45%;
+    }
+
+    /* .optionalName {
+        left: 0;
+        bottom: -50%;
+    } */
+
     .optionalPNumber {
         left: 0;
-        bottom: -70%;
+        bottom: -85%;
     }
 
     .optionalDate {

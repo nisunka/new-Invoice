@@ -3,8 +3,8 @@ import { ReactComponent as DuplicateIcon } from "../../../../../assets/img/icon/
 import style from "./PositionHeaderMenu.module.css";
 
 interface IPositionHeaderMenu {
-  deletePosition: any;
-  duplicatePosition: any;
+  deletePosition(): void;
+  duplicatePosition(): void;
 }
 
 const PositionHeaderMenu = ({

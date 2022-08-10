@@ -20,7 +20,7 @@ const OptionalPriceNumber: React.FC<Props> = ({
           <span className={style.namePosition}>Номер выставляемого счёта</span>
         </div>
       </label>
-      <div className={style.rightSide}>
+      <div className={`${style.rightSide} borderMobileErrorOptPriceN`}>
         <input
           id="input-price"
           className={style.input}

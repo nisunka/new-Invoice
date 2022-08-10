@@ -24,7 +24,7 @@
     font-size: 14px;
     line-height: 18px;
     color: var(--dark);
-    transition: all ease .3s;
+    transition: background-color ease-in .3s, color ease-in .3s;
 }
 
 .ndsLabel:focus {

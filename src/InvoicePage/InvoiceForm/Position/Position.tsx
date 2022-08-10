@@ -1,4 +1,3 @@
-import React from "react";
 import { IPosition } from "./Position.interface";
 import { Field } from "react-final-form";
 import { FieldArray } from "react-final-form-arrays";

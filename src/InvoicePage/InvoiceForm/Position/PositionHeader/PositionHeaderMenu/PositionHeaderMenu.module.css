@@ -43,3 +43,9 @@
 .menuBtnRed {
     color: var(--red);
 }
+
+@media (max-width: 599px) {
+    .menu {
+        width: 60%;
+    }
+}

@@ -19,7 +19,7 @@ const OptionalDeadline: React.FC<Props> = ({ input, meta, ...rest }: Props) => {
           </div>
         </div>
       </label>
-      <div className={style.rightSide}>
+      <div className={`${style.rightSide} borderMobileErrorDeadline`}>
         <input
           id="input-deadline"
           className={style.input}

@@ -18,7 +18,7 @@ const OptionalDataOfCreation: React.FC<Props> = ({
           <span className={style.namePosition}>Дата выставления</span>
         </div>
       </label>
-      <div className={style.rightSide}>
+      <div className={`${style.rightSide} borderMobileErrorDataOfCreation`}>
         <input
           id="input-dataOfCreation"
           className={style.input}

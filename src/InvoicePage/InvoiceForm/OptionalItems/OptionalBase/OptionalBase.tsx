@@ -25,7 +25,7 @@ const OptionalBase: React.FC<Props> = ({
           </div>
         </div>
       </label>
-      <div className={style.rightSide}>
+      <div className={`${style.rightSide} borderMobileErrorOptBase`}>
         <input
           className={style.input}
           id="input-base"

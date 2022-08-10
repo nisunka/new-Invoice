@@ -26,7 +26,7 @@ const PositionPrice: React.FC<Props> = ({ input, meta, ...rest }: Props) => {
               <TooltipPrice>{priceTooltipMessage}</TooltipPrice>
             </div>
           </div>
-          <div className={style.itemValue}>
+          <div className={`${style.itemValue} borderMobileErrorPrice`}>
             <input
               type="number"
               id="input-positionPrice"

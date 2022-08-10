@@ -1,25 +1,17 @@
-import { push } from "final-form-arrays";
-import React, { useEffect, useState } from "react";
+import { IPositionMobNewForm } from "./PositionMobNewForm.interface";
 import { Field, Form } from "react-final-form";
-import { FieldArray } from "react-final-form-arrays";
 import PositionCount from "../../../PositionCount/PositionCount";
-import { maxCount, maxPrice } from "../../../../validation/validatePosition";
-
+import {
+  maxCountMobile,
+  maxPriceMobile,
+} from "../../../../validation/validatePosition";
 import arrayMutators from "final-form-arrays";
 import PositionTitle from "../../../PositionTitle/PositionTitle";
 import PositionWhat from "../../../PositionWhat/PositionWhat";
-import { positionsWhat, positionsNds } from "../../../positionOptions";
+import { positionsWhat } from "../../../positionOptions";
 import PositionPrice from "../../../PositionPrice/PositionPrice";
-import style from "./PositionMobNewForm.module.css";
-// import NdsOption from "./NdsMobile/NdsOption/NdsOption";
 import NdsMobile from "./NdsMobile/NdsMobile";
-
-interface IPositionMobNewForm {
-  initialValue: any;
-  values: any;
-  pushPosit: any;
-  renderPattern: any;
-}
+import style from "./PositionMobNewForm.module.css";
 
 const PositionMobNewForm = ({
   initialValue,
@@ -28,10 +20,16 @@ const PositionMobNewForm = ({
   renderPattern,
 }: IPositionMobNewForm) => {
   const onSubmit = async (values: any) => {
-    window.alert(JSON.stringify(values));
+    if (values.count !== typeof Number) {
+      values.count = 1;
+    }
+    if (values.what !== typeof String) {
+      values.what = "шт.";
+    }
+    if (values.price !== typeof String) {
+      values.price = 1;
+    }
     pushPosit(values);
-    console.log("зашло в функцию отправки");
-    console.log(values);
     renderPattern(values);
   };
 
@@ -66,7 +64,7 @@ const PositionMobNewForm = ({
             <Field<number>
               name={`count`}
               component={PositionCount}
-              validate={maxCount(99999)}
+              validate={maxCountMobile(99999)}
             />
             <Field<string>
               name={`what`}
@@ -77,10 +75,9 @@ const PositionMobNewForm = ({
               name={`price`}
               component={PositionPrice}
               placeholder="0 &#8381;"
-              validate={maxPrice(99999999)}
+              validate={maxPriceMobile(99999999)}
             />
             <NdsMobile />
-            <pre>{JSON.stringify(values)}</pre>
             <button disabled={pristine} className={style.saveBtn}>
               Сохранить
             </button>

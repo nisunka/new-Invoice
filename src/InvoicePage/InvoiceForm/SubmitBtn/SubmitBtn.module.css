@@ -16,6 +16,11 @@
     transition: opacity .3s ease;
 }
 
+.sendBtn:disabled {
+    color: var(--grey);
+    background-color: var(--grey-100);
+}
+
 .sendBtn:hover,
 .addPositionBtn:hover {
     opacity: .8;

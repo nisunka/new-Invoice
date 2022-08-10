@@ -1,15 +1,8 @@
 import ReactDOM from "react-dom";
+import { IPositionMobileForm } from "./PositionMobileForm.interface";
 import PositionMobHeader from "./PositionMobHeader/PositionMobHeader";
 import style from "./PositionMobileForm.module.css";
 import PositionMobNewForm from "./PositionMobNewForm/PositionMobNewForm";
-
-interface IPositionMobileForm {
-  closeForm: any;
-  initialValue: any;
-  values: any;
-  pushPosit: any;
-  renderPattern: any;
-}
 
 const PositionMobileForm = ({
   closeForm,

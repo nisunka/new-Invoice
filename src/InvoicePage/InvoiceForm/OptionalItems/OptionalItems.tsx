@@ -10,6 +10,8 @@ import formatString from "format-string-by-pattern";
 import "dayjs/plugin/isSameOrAfter";
 import {
   maxValue,
+  maxValueName,
+  maxValueBase,
   validateDataOfCreation,
   validateDeadLine,
 } from "../validation/validateOptionalItems";
@@ -22,7 +24,7 @@ const OptionalItems = ({ values }: IOptionalItems) => {
         name="additional.base"
         component={OptionalBase}
         placeholder="Необязательно"
-        validate={maxValue(210, 0)}
+        validate={maxValueBase(210, 0)}
         valueLength={
           typeof values.base === "string" ? String(values.base.length) : 0
         }
@@ -32,7 +34,7 @@ const OptionalItems = ({ values }: IOptionalItems) => {
         name="additional.name"
         component={OptionalName}
         placeholder="Должность и ФИО заказчика"
-        validate={maxValue(120, 0)}
+        validate={maxValueName(120, 0)}
         valueLength={
           typeof values.name === "string" ? String(values.name.length) : 0
         }

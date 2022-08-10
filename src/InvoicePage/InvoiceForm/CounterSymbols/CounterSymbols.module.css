@@ -15,9 +15,11 @@
 }
 
 @media (max-width: 599px) {
-    .count {
+
+    .count,
+    .countError {
         margin-bottom: 10px;
         display: flex;
-        align-items: end;
+        align-items: flex-end;
     }
 }

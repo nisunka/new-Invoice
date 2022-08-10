@@ -1,8 +1,8 @@
 export interface IInvoiceForm {
-  withApproved: any;
-  additional: any;
+  withApproved: boolean;
+  additional: string[];
   choiceAccount: string;
   partnerName: string;
-  positions: any;
-  photo: any;
+  positions: string[];
+  photo: string;
 }

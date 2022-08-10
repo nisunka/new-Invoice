@@ -3,23 +3,37 @@ import { createPortal } from "react-dom";
 import { TooltipBaseType } from "../Tooltip.type";
 import { ReactComponent as TooltipIcon } from "../../../../assets/img/icon/tooltipIcon.svg";
 import style from "./TooltipDeadline.module.css";
+import useOnClickOutside from "../../useOnClickOutside";
+import { MatchMediaWrapper } from "../../../MatchMedia/MatchMediaWrapper";
 
 const TooltipDeadline: React.FC<TooltipBaseType> = ({
   children,
 }: TooltipBaseType) => {
   const [openTooltip, setOpenTooltip] = useState(false);
+  const targetElementRef = useRef<HTMLDivElement>(null);
+  useOnClickOutside(targetElementRef, () => setOpenTooltip(false));
+  // Desktop Position
   const offsetTop = -15;
   const offsetLeft = 40;
-  const targetElementRef = useRef<HTMLDivElement>(null);
-  const position = targetElementRef.current?.getBoundingClientRect();
-  const css = {
-    bottom: Number(position?.y) + window.pageYOffset + "px",
-    left: Number(position?.x) + window.pageXOffset + offsetLeft + "px",
-    top: Number(position?.y) + window.pageYOffset + offsetTop + "px",
-    right: Number(position?.x) + window.pageXOffset + "px",
+  const positionD = targetElementRef.current?.getBoundingClientRect();
+  const cssDesktop = {
+    bottom: Number(positionD?.y) + window.pageYOffset + "px",
+    left: Number(positionD?.x) + window.pageXOffset + offsetLeft + "px",
+    top: Number(positionD?.y) + window.pageYOffset + offsetTop + "px",
+    right: Number(positionD?.x) + window.pageXOffset + "px",
+  };
+  // Mobile Position
+  const offsetTopM = -50;
+  const offsetLeftM = -310;
+  const positionM = targetElementRef.current?.getBoundingClientRect();
+  const cssMobile = {
+    bottom: Number(positionM?.y) + window.pageYOffset + "px",
+    left: Number(positionM?.x) + window.pageXOffset + offsetLeftM + "px",
+    top: Number(positionM?.y) + window.pageYOffset + offsetTopM + "px",
+    right: Number(positionM?.x) + window.pageXOffset + "px",
   };
 
-  return (
+  const desktopContent = (
     <div>
       <div
         className={style.tooltipIconContainer}
@@ -31,7 +45,7 @@ const TooltipDeadline: React.FC<TooltipBaseType> = ({
       </div>
       {openTooltip &&
         createPortal(
-          <div className={style.containerTooltip} style={css}>
+          <div className={style.containerTooltip} style={cssDesktop}>
             <div className={style.wrapper}>
               <p className={style.text}>{children}</p>
             </div>
@@ -39,6 +53,34 @@ const TooltipDeadline: React.FC<TooltipBaseType> = ({
           document.getElementById("tooltip")!
         )}
     </div>
+  );
+
+  const mobileContent = (
+    <div>
+      <div
+        className={style.tooltipIconContainer}
+        ref={targetElementRef}
+        onClick={() => setOpenTooltip(true)}
+      >
+        <TooltipIcon />
+      </div>
+      {openTooltip &&
+        createPortal(
+          <div className={style.containerTooltipMobile} style={cssMobile}>
+            <div className={style.wrapper}>
+              <p className={style.text}>{children}</p>
+            </div>
+          </div>,
+          document.getElementById("tooltip")!
+        )}
+    </div>
+  );
+
+  return (
+    <MatchMediaWrapper
+      mobileContent={mobileContent}
+      desktopContent={desktopContent}
+    />
   );
 };
 

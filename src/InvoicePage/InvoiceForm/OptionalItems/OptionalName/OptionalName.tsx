@@ -20,7 +20,7 @@ const OptionalBase: React.FC<Props> = ({
           <span className={style.namePosition}>Должность и ФИО заказчика</span>
         </div>
       </label>
-      <div className={style.rightSide}>
+      <div className={`${style.rightSide} borderMobileErrorOptName`}>
         <input
           className={style.input}
           type="text"

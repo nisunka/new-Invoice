@@ -96,3 +96,14 @@ input::-webkit-inner-spin-button {
 .onScrollPosition {
   overflow-y: scroll !important;
 }
+
+@media (max-width: 599px) {
+  form div .borderMobileErrorRed {
+    border-bottom: none;
+    border-bottom: 2px solid red;
+  }
+
+  form div .borderMobileErrorRed:focus-within {
+    border-bottom: 2px solid red;
+  }
+}
