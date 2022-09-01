@@ -1,46 +1,63 @@
-# Getting Started with Create React App
+# Приложение для выставления счёта
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Рабочий вариант можно посмотреть [тут](https://pip.pypa.io/en/stable/)
 
-## Available Scripts
+## Запустить проект
+```python
+# Установить зависимости
+npm install
 
-In the project directory, you can run:
+# Запустить приложение
+npm start
+```
 
-### `npm start`
+### Технологии
+📎 [ReactJs](https://reactjs.org/)  
+📎 [TypeScript](https://www.typescriptlang.org/)  
+📎 [Final-form](https://final-form.org/) / [React-final-form](https://final-form.org/react)  
+📎 [Final-form-arrays](https://final-form.org/arrays)  
+📎 [React-select](https://react-select.com/home)  
+📎 [DayJs](https://day.js.org/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Специфика
+🖇️ Блоки "Позиции", "Дополнительно" имеют валидацию полей  
+🖇️ Использованы регулярные выражения для input и условный рендеринг   
+🖇️ Тултипы и доп.меню в блоке "Позиции" написаны при помощи порталов  
+🖇️ Реализован адаптив для планшетов и смартфонов. При разрешении менее 599 px создание "Позиции" открывается в модальном окне
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Результат
+После заполнения формы и нажатия на кнопку "Проверить и выставить" формируется json-объект с введёнными данными. Например: 
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```python
+# Данные для выставления счёта
+{
+  "choiceAccount": "50 275,37 ₽ — Расчётный",
+  "positions": [
+    {
+      "title": "Организация детского праздника",
+      "count": 1,
+      "what": "шт.",
+      "price": "40000",
+      "nds": "Без НДС",
+      "total": "40000"
+    },
+    {
+      "title": "Костюм Боба Фетта",
+      "what": "компл.",
+      "price": "15500",
+      "nds": "Без НДС",
+      "count": "1",
+      "total": "15500"
+    }
+  ],
+  "additional": {
+    "base": "Договор №12 от 09.08.2022",
+    "name": "Непомнящий Кирилл Андреевич",
+    "priceNumber": "2",
+    "dataOfCreation": "09.08.2022",
+    "deadLine": "10.09.2022"
+  },
+  "withApproved": false,
+  "partnerName": "0123456789"
+}
+```
